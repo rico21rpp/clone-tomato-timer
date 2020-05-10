@@ -1,8 +1,8 @@
 // set global variable
 var timer;
-let minutes = 1;
-let seconds = 0;
-let isTimerOn = false;
+var minutes = 1;
+var seconds = 0;
+var isTimerOn = false;
 
 const btnPomodoro = document.querySelector('.btn__timer--pomodoro');
 const btnShortBreak = document.querySelector('.btn__timer--short');
@@ -18,10 +18,12 @@ const startTimer = () => {
         timer = setInterval(function() {
             if (minutes > 0 && seconds == 0) {
                 minutes--;
-                seconds = 10;
+                seconds = 59;
             }
             else if (minutes == 0 && seconds == 0) {
                 clearInterval(timer);
+                isTimerOn = false;
+                minutes = 25;
                 return;
             }
             seconds--;
@@ -32,11 +34,20 @@ const startTimer = () => {
 
 const stopTimer = () => {
     clearInterval(timer);
+    isTimerOn = false;
     return;
+}
+
+const resetTimer = () => {
+    clearInterval(timer);
+    isTimerOn = false;
+    minutes = 25;
+    seconds = 0;
 }
 
 btnStart.addEventListener('click', startTimer);
 btnStop.addEventListener('click', stopTimer);
+btnReset.addEventListener('click', resetTimer);
 
 // console.log(btnPomodoro);
 // console.log(btnShortBreak);
