@@ -18,17 +18,17 @@ const btnStop = document.querySelector('.btn__action--stop');
 const btnReset = document.querySelector('.btn__action--reset');
 
 const setCounter = () => {
-    minuteStr = minutes.toString();
-    setSecondStr();
+    minuteStr = getStr(minutes)
+    secondStr = getStr(seconds)
     counter.innerHTML = `${minuteStr}:${secondStr}`;
 }
 
-function setSecondStr() {
-    if (seconds < 10) {
-        secondStr = `0${seconds}`;
+function getStr(counterNumber) {
+    if (counterNumber < 10) {
+        return `0${counterNumber}`;
     }
     else {
-        secondStr = seconds.toString();
+        return counterNumber.toString();
     }
 }
 
@@ -43,8 +43,8 @@ const startTimer = () => {
             else if (minutes == 0 && seconds == 0) {
                 clearInterval(timer);
                 isTimerOn = false;
-                minutes = 25;
                 setCounter();
+                minutes = 25;
                 return;
             }
             seconds--;
