@@ -1,9 +1,9 @@
 // set global variable
 var timer;
-var minutes = 25;
-var seconds = 0;
 var isTimerOn = false;
 
+var minutes = 25;
+var seconds = 0;
 var minuteStr = "25";
 var secondStr = "00";
 
@@ -17,20 +17,15 @@ const btnStart = document.querySelector('.btn__action--start');
 const btnStop = document.querySelector('.btn__action--stop');
 const btnReset = document.querySelector('.btn__action--reset');
 
+// set timer counter displayed on the screen
 const setCounter = () => {
-    minuteStr = getStr(minutes)
-    secondStr = getStr(seconds)
+    minuteStr = getTimeStr(minutes)
+    secondStr = getTimeStr(seconds)
     counter.innerHTML = `${minuteStr}:${secondStr}`;
 }
 
-function getStr(counterNumber) {
-    if (counterNumber < 10) {
-        return `0${counterNumber}`;
-    }
-    else {
-        return counterNumber.toString();
-    }
-}
+// get time value in string format
+const getTimeStr = (counterNumber) => counterNumber < 10 ? `0${counterNumber}` : counterNumber.toString();
 
 const startTimer = () => {
     if (isTimerOn == false) {
@@ -56,7 +51,6 @@ const startTimer = () => {
 const stopTimer = () => {
     clearInterval(timer);
     isTimerOn = false;
-    return;
 }
 
 const resetTimer = () => {
