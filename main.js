@@ -61,26 +61,16 @@ const resetTimer = () => {
     setCounter();
 }
 
-const startPomodoro = () => {
-    minutes = 25;
+const changeAndStartTimer = (newMinutes) => {
+    minutes = newMinutes;
     seconds = 0;
     setCounter();
     startTimer();
 }
 
-const startShortBreak = () => {
-    minutes = 5;
-    seconds = 0;
-    setCounter();
-    startTimer();
-}
-
-const startLongBreak = () => {
-    minutes = 10;
-    seconds = 0;
-    setCounter();
-    startTimer();
-}
+const startPomodoro = () => changeAndStartTimer(25);
+const startShortBreak = () => changeAndStartTimer(5);
+const startLongBreak = () => changeAndStartTimer(10);
 
 btnStart.addEventListener('click', startTimer);
 btnStop.addEventListener('click', stopTimer);
@@ -89,3 +79,11 @@ btnReset.addEventListener('click', resetTimer);
 btnPomodoro.addEventListener('click', startPomodoro);
 btnShortBreak.addEventListener('click', startShortBreak);
 btnLongBreak.addEventListener('click', startLongBreak);
+
+/*
+NOTES
+
+JS Feature
+[ ] Tombol reset harusnya mereset sesuai jenis timernya, bukan selalu reset ke 25 menit
+[x] code untuk jenis timer menyalahi prinsip DRY, revisi!
+*/
