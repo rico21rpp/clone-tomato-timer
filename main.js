@@ -61,6 +61,31 @@ const resetTimer = () => {
     setCounter();
 }
 
+const startPomodoro = () => {
+    minutes = 25;
+    seconds = 0;
+    setCounter();
+    startTimer();
+}
+
+const startShortBreak = () => {
+    minutes = 5;
+    seconds = 0;
+    setCounter();
+    startTimer();
+}
+
+const startLongBreak = () => {
+    minutes = 10;
+    seconds = 0;
+    setCounter();
+    startTimer();
+}
+
 btnStart.addEventListener('click', startTimer);
 btnStop.addEventListener('click', stopTimer);
 btnReset.addEventListener('click', resetTimer);
+
+btnPomodoro.addEventListener('click', startPomodoro);
+btnShortBreak.addEventListener('click', startShortBreak);
+btnLongBreak.addEventListener('click', startLongBreak);
