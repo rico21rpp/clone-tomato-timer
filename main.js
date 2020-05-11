@@ -85,5 +85,5 @@ NOTES
 
 JS Feature
 [ ] Tombol reset harusnya mereset sesuai jenis timernya, bukan selalu reset ke 25 menit
-[x] code untuk jenis timer menyalahi prinsip DRY, revisi!
+[x] code untuk jenis timer menyalahi prinsip DRY, revisi! 
 */
